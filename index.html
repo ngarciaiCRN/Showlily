@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ç<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -58,8 +58,33 @@
             align-items: center;
             padding-bottom: 100px;
         }
-        .show-feed {
-            left: 0 !important;
+        .feed-header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+        .feed-header h2 {
+            margin-bottom: 10px;
+        }
+        .feed-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .feed-tabs {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 10px 0;
+            border-bottom: 2px solid #ddd;
+        }
+        .feed-tabs div {
+            cursor: pointer;
+            font-weight: bold;
         }
         .bottom-icons {
             position: absolute;
@@ -84,7 +109,22 @@
             <img src="1x/girar.png" alt="Girar cámara" id="switch-camera">
         </div>
         <div class="bottom-icons">
-            <img src="1x/boton.png" alt="Capturar">
+            <img src="/mnt/data/boton.png" alt="Capturar">
+        </div>
+        <div class="feed" id="feed">
+            <div class="feed-header">
+                <h2>Show Lily</h2>
+            </div>
+            <div class="feed-stats">
+                <div>384 Publicaciones</div>
+                <div>547K Seguidores</div>
+                <div>908 Seguidos</div>
+            </div>
+            <div class="feed-tabs">
+                <div>Publicaciones</div>
+                <div>Guardado</div>
+                <div>Etiquetado</div>
+            </div>
         </div>
     </div>
     <script>
@@ -99,6 +139,17 @@
         }
         
         document.getElementById("switch-camera").addEventListener("click", switchCamera);
+        
+        // Evento de deslizamiento para abrir el feed
+        let startX;
+        document.getElementById("container").addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+        });
+        document.getElementById("container").addEventListener("touchmove", (e) => {
+            if (e.touches[0].clientX - startX < -50) {
+                document.getElementById("feed").classList.add("show-feed");
+            }
+        });
     </script>
 </body>
 </html>
