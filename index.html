@@ -57,8 +57,40 @@
             align-items: center;
             padding: 20px;
         }
-        .show-feed {
-            left: 0 !important;
+        .feed-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 4;
+        }
+        .feed-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 100%;
+            padding: 10px;
+        }
+        .feed-grid img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .gradient {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            z-index: 2;
         }
         .bottom-icons {
             position: absolute;
@@ -66,27 +98,18 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            z-index: 2;
+            z-index: 3;
         }
         .bottom-icons img {
             width: 90px;
             height: 90px;
-        }
-        .feed img {
-            width: 90%;
-            max-width: 400px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-        }
-        .feed h2 {
-            margin-bottom: 20px;
-            color: black;
         }
     </style>
 </head>
 <body>
     <div class="container" id="container">
         <video class="camera-view" id="camera" autoplay playsinline></video>
+        <div class="gradient"></div>
         <div class="icons-overlay">
             <img src="1x/galeria.png" alt="Galería">
             <img src="1x/girar.png" alt="Girar cámara">
@@ -95,12 +118,18 @@
             <img src="/mnt/data/boton.png" alt="Capturar">
         </div>
         <div class="feed" id="feed">
-            <h2>Feed de publicaciones</h2>
-            <img src="1x/Recurso 4.png" alt="Publicación 1">
-            <img src="1x/Recurso 5.png" alt="Publicación 2">
-            <img src="1x/Recurso 6.png" alt="Publicación 3">
-            <img src="1x/Recurso 7.png" alt="Publicación 4">
-            <img src="1x/Recurso 8.png" alt="Publicación 5">
+            <div class="feed-header">
+                <img src="1x/perfil.png" alt="Foto de perfil">
+                <h3>547K Seguidores</h3>
+            </div>
+            <div class="feed-grid">
+                <img src="1x/Recurso 4.png" alt="Publicación 1">
+                <img src="1x/Recurso 5.png" alt="Publicación 2">
+                <img src="1x/Recurso 6.png" alt="Publicación 3">
+                <img src="1x/Recurso 7.png" alt="Publicación 4">
+                <img src="1x/Recurso 8.png" alt="Publicación 5">
+                <img src="1x/Recurso 9.png" alt="Publicación 6">
+            </div>
         </div>
     </div>
     <script>
