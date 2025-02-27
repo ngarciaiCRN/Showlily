@@ -9,11 +9,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
         body, html {
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background: black;
         }
         .container {
             width: 100%;
@@ -32,11 +34,12 @@
             top: 10px;
             left: 10px;
             z-index: 2;
+            display: flex;
+            gap: 15px;
         }
         .icons-overlay img {
             width: 50px;
             height: 50px;
-            margin: 5px;
         }
         .feed {
             position: absolute;
@@ -62,17 +65,22 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 20px;
+            gap: 40px;
             z-index: 2;
         }
         .bottom-icons img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
         }
         .feed img {
             width: 90%;
             max-width: 400px;
             margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        .feed h2 {
+            margin-bottom: 20px;
+            color: black;
         }
     </style>
 </head>
@@ -116,3 +124,4 @@
     </script>
 </body>
 </html>
+
