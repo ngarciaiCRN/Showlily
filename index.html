@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Show Lily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .camera-view {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            z-index: 1;
+        }
+        .icons-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+        .icons-overlay img {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+        .feed {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.3s ease-in-out;
+            overflow-y: scroll;
+            z-index: 3;
+        }
+        .show-feed {
+            left: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <video class="camera-view" id="camera" autoplay playsinline></video>
+        <div class="icons-overlay">
+            <img src="icon1.png" alt="Icono 1">
+            <img src="icon2.png" alt="Icono 2">
+        </div>
+        <div class="feed" id="feed">
+            <h2>Feed de publicaciones</h2>
+            <p>Aquí irán las publicaciones...</p>
+        </div>
+    </div>
+    <script>
+        // Acceso a la cámara
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+            .then(stream => {
+                document.getElementById('camera').srcObject = stream;
+            })
+            .catch(err => console.error("Error al acceder a la cámara: ", err));
+        
+        // Evento de deslizamiento para abrir el feed
+        let startX;
+        document.getElementById("container").addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+        });
+        document.getElementById("container").addEventListener("touchmove", (e) => {
+            if (e.touches[0].clientX - startX < -50) {
+                document.getElementById("feed").classList.add("show-feed");
+            }
+        });
+    </script>
+</body>
+</html>
