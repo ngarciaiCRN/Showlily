@@ -48,6 +48,10 @@
             transition: left 0.3s ease-in-out;
             overflow-y: scroll;
             z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
         .show-feed {
             left: 0 !important;
@@ -65,21 +69,30 @@
             width: 60px;
             height: 60px;
         }
+        .feed img {
+            width: 90%;
+            max-width: 400px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container" id="container">
         <video class="camera-view" id="camera" autoplay playsinline></video>
         <div class="icons-overlay">
-            <img src="/mnt/data/extracted_files/galeria.png" alt="Galería">
-            <img src="/mnt/data/extracted_files/girar.png" alt="Girar cámara">
+            <img src="1x/galeria.png" alt="Galería">
+            <img src="1x/girar.png" alt="Girar cámara">
         </div>
         <div class="bottom-icons">
-            <img src="/mnt/data/extracted_files/boton.png" alt="Capturar">
+            <img src="1x/boton.png" alt="Capturar">
         </div>
         <div class="feed" id="feed">
             <h2>Feed de publicaciones</h2>
-            <p>Aquí irán las publicaciones...</p>
+            <img src="1x/Recurso 4.png" alt="Publicación 1">
+            <img src="1x/Recurso 5.png" alt="Publicación 2">
+            <img src="1x/Recurso 6.png" alt="Publicación 3">
+            <img src="1x/Recurso 7.png" alt="Publicación 4">
+            <img src="1x/Recurso 8.png" alt="Publicación 5">
         </div>
     </div>
     <script>
