@@ -52,6 +52,19 @@
         .show-feed {
             left: 0 !important;
         }
+        .bottom-icons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+        .bottom-icons img {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +73,11 @@
         <div class="icons-overlay">
             <img src="icon1.png" alt="Icono 1">
             <img src="icon2.png" alt="Icono 2">
+        </div>
+        <div class="bottom-icons">
+            <img src="icon-left.png" alt="Icono Izquierda">
+            <img src="icon-center.png" alt="Icono Centro">
+            <img src="icon-right.png" alt="Icono Derecha">
         </div>
         <div class="feed" id="feed">
             <h2>Feed de publicaciones</h2>
